@@ -18,7 +18,7 @@ export const login = async (params = {}) => {
     return ERROR_CONSTANT;
   }
 
-  const token = getToken({ username: r.data.username });
+  const token = getToken({ _id: r.data._id });
   const data = {
     _id: r.data._id,
     username: r.data.username,
@@ -33,7 +33,7 @@ export const signup = async (docs = {}) => {
     return r;
   }
 
-  const token = getToken({ username: r.data.username });
+  const token = getToken({ _id: r.data._id });
   const data = {
     _id: r.data._id,
     username: r.data.username,
