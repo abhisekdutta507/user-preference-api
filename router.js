@@ -11,7 +11,7 @@ export const router = () => {
   router.post(URL.signup, authController.signup);
 
   // user end-points
-  router.get(URL.users.byId, userMiddleware.idInToken, userController.findOne);
+  router.get(URL.users.byId, userController.findOne);
   router.put(URL.users.byId, userMiddleware.idInToken, userController.updateOne);
 
   return router;
