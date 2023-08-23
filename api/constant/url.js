@@ -6,6 +6,7 @@ export const Version = {
 export const URL = {
   login: '/login',
   signup: '/signup',
+  heartbeat: '/heartbeat',
 
   users: {
     byId: '/users/:_id',
