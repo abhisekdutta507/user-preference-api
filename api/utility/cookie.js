@@ -1,4 +1,4 @@
 export const getCookie = (data = {}) => {
   const maxAge = 5 * 60 * 1000; // 5 minutes
-  return ['Authorization', data.token, { secure: true, httpOnly: true, maxAge }];
+  return ['Authorization', data.token, { domain: 'user-preference-ui.netlify.app', path: '/', secure: true, httpOnly: true, maxAge }];
 };
