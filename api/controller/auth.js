@@ -8,7 +8,6 @@ export const login = async (request, response) => {
       .status(400)
       .send({ error: { message: { type: 'error', text: `username and password are required fields` } }, data: {} });
   }
-
   const docs = { username, password };
   const r = await authService.login(docs);
   if (r.error) {
@@ -17,7 +16,7 @@ export const login = async (request, response) => {
 
   return response
     .status(200)
-    .cookie(getCookie({ token: r.data.token }))
+    .cookie(...getCookie({ token: r.data.token }))
     .send(r);
 };
 
@@ -37,6 +36,6 @@ export const signup = async (request, response) => {
 
   return response
     .status(200)
-    .cookie(getCookie({ token: u.data.token }))
+    .cookie(...getCookie({ token: u.data.token }))
     .send(u);
 };

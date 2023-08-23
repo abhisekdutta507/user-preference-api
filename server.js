@@ -9,6 +9,7 @@ import cookies from 'cookie-parser';
 import * as db from './api/database/connector.js';
 import { log } from './api/utility/logger.js';
 import { Version } from './api/constant/url.js';
+import { allowedOrigins } from './api/constant/environment.js';
 import { router } from './router.js';
 
 const forkWorker = () => {
@@ -30,7 +31,7 @@ const server = () => {
   config();
 
   // apply middlewares
-  app.use(cors());
+  app.use(cors({ credentials: true, origin: allowedOrigins }));
   app.use(json());
   app.use(cookies());
   app.use(Version.v1, router());
