@@ -2,7 +2,9 @@ import * as authService from '../service/auth.js';
 import { getCookie } from '../utility/cookie.js';
 
 export const login = async (request, response) => {
-  const { username, password } = request.body;
+  const { username: tempUsername, password: tempPassword } = request.body;
+  const username = tempUsername ? tempUsername.trim() : tempUsername;
+  const password = tempPassword ? tempPassword.trim() : tempPassword;
   if (!username || !password) {
     return response
       .status(400)
@@ -21,7 +23,9 @@ export const login = async (request, response) => {
 };
 
 export const signup = async (request, response) => {
-  const { username, password, preference } = request.body;
+  const { username: tempUsername, password: tempPassword, preference } = request.body;
+  const username = tempUsername ? tempUsername.trim() : tempUsername;
+  const password = tempPassword ? tempPassword.trim() : tempPassword;
   if (!username || !password || !preference) {
     return response
       .status(400)
