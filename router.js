@@ -3,9 +3,11 @@ import { URL } from './api/constant/url.js';
 import * as userMiddleware from './api/middleware/user.js';
 import * as authController from './api/controller/auth.js';
 import * as userController from './api/controller/user.js';
+import * as heartbeatController from './api/controller/heartbeat.js';
 
 export const router = () => {
   const router = Router({ caseSensitive: true });
+  router.get(URL.heartbeat, heartbeatController.check);
 
   router.post(URL.login, authController.login);
   router.post(URL.signup, authController.signup);
