@@ -1,7 +1,7 @@
 import jwt from 'jsonwebtoken';
 import { PrivateKey, JWTAlgorithm } from '../constant/secret.js';
 
-const expiresIn = 10 * 60; // 10 minutes
+const expiresIn = 5 * 60; // 5 minutes
 
 export const getToken = (data = {}) => {
   // for RSA algorithm we have to use a .key file
